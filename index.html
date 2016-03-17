@@ -92,7 +92,7 @@
                     $('#add-block').text("Submiting.....");
                     $('#add-block').attr("disabled", true);
                     $.ajax({
-                        url: "http://localhost/adminlte/mayur_ajax.html",
+                        url: "http://localhost/openbox/mayur_ajax.html",
                     }).done(function (data) {
                         $(".diolog-box-area").append(data);
                         manageright();
