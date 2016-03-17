@@ -1,6 +1,6 @@
 # OpenBox
 
-Facebook Style Chat Box Popup using JavaScript and CSS
+Gmail compose Style multiple Dialog Box using jQuery and CSS3
 
 
 Author : Mayur Godhani
