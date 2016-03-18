@@ -63,7 +63,7 @@
                         </div>
                         <div class="box-body">
                             <div class="col-md-2">
-                                <button id="add-block" class="btn btn-block btn-primary">Submit</button>
+                                <a href="http://localhost/openbox/mayur_ajax.html" class="google-diolog-box" >Submit</a>                                
                             </div>
                         </div>
                         <div class="box-footer">
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </section>
-            </div>
+            </div>            
             <div class="control-sidebar-bg"></div>
         </div>        
         <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>        
@@ -79,28 +79,31 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>               
         <script src="dist/js/app.min.js"></script>
 
-        <link rel="stylesheet" href="openbox/openbox.css">
-        <script src="openbox/openbox.js"></script>
-
-        <div class="diolog-box-area">            
-
-        </div>
-
         <script>
-            $(document).ready(function () {
-                $("#add-block").click(function () {
-                    $('#add-block').text("Submiting.....");
-                    $('#add-block').attr("disabled", true);
+            jQuery(document).ready(function () {
+                $(document).on('click', '.ajaxviewmodel', function (event) {
+                    var tmp_html = '<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-body"><p class="ajaxloader"><i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i></p></div></div></div>';
+                    event.preventDefault();
+                    var link = $(this).attr("href");
+                    $('#myModal').modal('show');
+                    $("#myModal").html(tmp_html);
                     $.ajax({
-                        url: "http://localhost/openbox/mayur_ajax.html",
-                    }).done(function (data) {
-                        $(".diolog-box-area").append(data);
-                        manageright();
-                        $('#add-block').text("Submit");
-                        $('#add-block').attr("disabled", false);
+                        url: link,
+                        success: function (data) {
+                            $(".ajaxloader").hide();
+                            $("#myModal").html(data);
+                        }
                     });
                 });
             });
         </script>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+        <link rel="stylesheet" href="openbox/openbox.css">
+        <script src="openbox/openbox.js"></script>        
+
+        <div class="diolog-box-area">            
+
+        </div>        
     </body>
 </html>

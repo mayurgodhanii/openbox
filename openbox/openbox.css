@@ -3,7 +3,7 @@
     bottom: 0;
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 100%;
     z-index: 9999;
@@ -17,7 +17,7 @@
 .r-diolog-box{
     bottom: 0;
     position: absolute;
-    width: 32%;    
+    width: 48%;    
 }
 .r-diolog-box .box  {
     z-index: 9999;
